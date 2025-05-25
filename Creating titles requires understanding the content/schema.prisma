@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String?  @unique
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  settings  String?  // JSON string for user preferences and settings
+  
+  // Relations
+  journalEntries JournalEntry[]
+  insights       Insight[]
+
+  @@map("users")
+}
+
+model JournalEntry {
+  id            String   @id @default(uuid())
+  userId        String   @map("user_id")
+  audioFilePath String?  @map("audio_file_path")
+  transcript    String
+  timestamp     DateTime @default(now())
+  moodTags      String   @map("mood_tags") // JSON array of detected emotions
+  summary       String?
+  embedding     String?  // JSON string for vector embedding
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+  
+  // Relations
+  user          User     @relation(fields: [userId], references: [id])
+
+  @@map("journal_entries")
+}
+
+model Insight {
+  id          String   @id @default(uuid())
+  userId      String   @map("user_id")
+  type        String   // daily/weekly
+  content     String
+  periodStart DateTime @map("period_start")
+  periodEnd   DateTime @map("period_end")
+  createdAt   DateTime @default(now()) @map("created_at")
+  
+  // Relations
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@map("insights")
+}
