@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
 import fs from 'fs';
 import path from 'path';
-import { PDFDocument, StandardFonts } from 'pdf-lib';
+import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 
 const prisma = new PrismaClient();
 
@@ -79,7 +79,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         y: height - 140,
         size: 16,
         font: timesRomanFont,
-        color: { r: 0.5, g: 0.5, b: 0.5 },
+        color: rgb(0.5, 0.5, 0.5),
       });
       
       page.drawText(`Export Date: ${new Date().toLocaleDateString()}`, {
@@ -126,7 +126,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           y: yPosition,
           size: 12,
           font: timesRomanFont,
-          color: { r: 0.5, g: 0.5, b: 0.5 },
+          color: rgb(0.5, 0.5, 0.5),
         });
         
         yPosition -= 40;
@@ -198,7 +198,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 y: yPosition,
                 size: 12,
                 font: timesRomanFont,
-                color: { r: 0.3, g: 0.3, b: 0.3 },
+                color: rgb(0.3, 0.3, 0.3),
               });
               
               line = word + ' ';
@@ -221,7 +221,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               y: yPosition,
               size: 12,
               font: timesRomanFont,
-              color: { r: 0.3, g: 0.3, b: 0.3 },
+              color: rgb(0.3, 0.3, 0.3),
             });
           }
         }

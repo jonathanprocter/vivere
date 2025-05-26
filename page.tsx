@@ -1,7 +1,7 @@
 import React from 'react';
-import MainLayout from '../components/layout/MainLayout';
-import VoiceRecorder from '../components/ui/VoiceRecorder';
-import JournalBrowser from '../components/ui/JournalBrowser';
+import MainLayout from './components/layout/MainLayout';
+import VoiceRecorder from './components/ui/VoiceRecorder';
+import JournalBrowser from './components/ui/JournalBrowser';
 
 export default function Home() {
   // Mock data for demonstration
