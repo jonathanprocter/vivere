@@ -1,14 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
-import { Configuration, OpenAIApi } from 'openai';
+import OpenAI from 'openai';
 
 const prisma = new PrismaClient();
 
 // Initialize OpenAI API with mock key
-const configuration = new Configuration({
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-const openai = new OpenAIApi(configuration);
 
 // Emotion detection and tagging service
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

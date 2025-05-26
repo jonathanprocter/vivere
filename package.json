@@ -9,18 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
     "@prisma/client": "latest",
+    "next": "^15.3.2",
     "openai": "latest",
-    "pdf-lib": "latest"
+    "pdf-lib": "latest",
+    "react": "latest",
+    "react-dom": "latest"
   },
   "devDependencies": {
-    "prisma": "latest",
-    "typescript": "latest",
-    "tailwindcss": "latest",
+    "@types/react": "19.1.5",
+    "autoprefixer": "latest",
     "postcss": "latest",
-    "autoprefixer": "latest"
+    "prisma": "latest",
+    "tailwindcss": "latest",
+    "typescript": "5.8.3"
   }
 }
