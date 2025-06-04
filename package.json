@@ -1,0 +1,28 @@
+{
+  "name": "vivere",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "prisma:generate": "prisma generate",
+    "build": "npm run prisma:generate && next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "postinstall": "prisma generate",
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "@prisma/client": "latest",
+    "openai": "latest",
+    "pdf-lib": "latest"
+  },
+  "devDependencies": {
+    "prisma": "latest",
+    "typescript": "latest",
+    "tailwindcss": "latest",
+    "postcss": "latest",
+    "autoprefixer": "latest"
+  }
+}

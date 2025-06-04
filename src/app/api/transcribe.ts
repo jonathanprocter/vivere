@@ -1,12 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
 import { Configuration, OpenAIApi } from 'openai';
+import { OPENAI_API_KEY } from '../../config/serverEnv';
 
 const prisma = new PrismaClient();
 
 // Initialize OpenAI API with mock key
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 

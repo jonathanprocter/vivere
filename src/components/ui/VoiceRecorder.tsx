@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Button from '../ui/Button';
+import Button from './Button';
 
 interface VoiceRecorderProps {
   onRecordingComplete: (audioBlob: Blob) => void;
